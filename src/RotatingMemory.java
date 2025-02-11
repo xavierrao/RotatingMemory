@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+
 import javax.swing.*;
 
 public class RotatingMemory {
@@ -115,6 +116,7 @@ public class RotatingMemory {
                             else {
                                 card1Selected = null;
                                 card2Selected = null;
+                                rotateBoard();
                             }
                         }
                     }
@@ -199,6 +201,25 @@ public class RotatingMemory {
             }
             gameReady = true;
             restartButton.setEnabled(true);
+        }
+    }
+
+    void rotateBoard() {
+        // Rotating bottom of card counter clockwise when match and rotating top of card clockwise when incorrect right after a match
+        JButton[][] rotated = new JButton[rows][columns];
+        int index = 0;
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < columns; c++) {
+                rotated[c][rows - 1 - r] = board.get(index);
+                board.remove(index);
+                boardPanel.remove(index);
+            }
+        }
+        for (JButton[] row : rotated) {
+            for (JButton tile : row) {
+                board.add(tile);
+                boardPanel.add(tile);
+            }
         }
     }
 
