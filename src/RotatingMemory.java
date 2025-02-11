@@ -201,4 +201,8 @@ public class RotatingMemory {
             restartButton.setEnabled(true);
         }
     }
+
+    public static void main(String[] args) throws Exception {
+        RotatingMemory rotatingMemory = new RotatingMemory();
+    }
 }
