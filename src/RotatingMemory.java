@@ -168,14 +168,14 @@ public class RotatingMemory {
     void setupCards() {
         cardSet = new ArrayList<Card>();
         for (String cardName : cardList) {
-            Image cardImage = new ImageIcon(getClass().getResource("./img/" + cardName + ".png")).getImage();
+            Image cardImage = new ImageIcon(getClass().getResource("img/" + cardName + ".png")).getImage();
             ImageIcon cardImageIcon = new ImageIcon(cardImage.getScaledInstance((int) (cardWidth * 0.9), (int) (cardHeight * 0.9), java.awt.Image.SCALE_SMOOTH));
 
             Card card = new Card(cardName, cardImageIcon);
             cardSet.add(card);
         }
         cardSet.addAll(cardSet);
-        Image cardBackImage = new ImageIcon(getClass().getResource("./img/back.png")).getImage();
+        Image cardBackImage = new ImageIcon(getClass().getResource("img/back.png")).getImage();
         cardBackImageIcon = new ImageIcon(cardBackImage.getScaledInstance((int) (cardWidth * 0.9), (int) (cardHeight * 0.9), java.awt.Image.SCALE_SMOOTH));
     }
 
